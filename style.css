@@ -1,0 +1,444 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f8f8f8;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: #18a2d4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: min(90%, 1200px);
+  margin-inline: auto;
+}
+
+/* ========== Typography ========== */
+h1 {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 700;
+  color: #f0ec08f3;
+  text-shadow: 1px 1px 2px rgba(247, 76, 46, 0.842), -1px -1px 2px rgba(247, 76, 46, 0.842), 1px -1px 2px rgba(247, 76, 46, 0.842), -1px 1px 2px rgba(247, 76, 46, 0.842);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-bottom: 0.75em;
+}
+
+h2,
+h3 {
+  color: #18a2d4;
+  margin-bottom: 0.6em;
+}
+
+.section-padding {
+  padding-block: 4rem;
+}
+
+.bg-light-gray {
+  background: #f2f2de;
+}
+
+/* ========== Header & Navigation ========== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* ヘッダー全体に左右のパディングを追加し、端からの余白を確保 */
+  padding: 0.8rem 20px; /* 例: 上下0.8rem、左右20px */
+}
+.logo {
+  /* z-index: 1001; /* 必要であれば追加 */
+  flex-shrink: 0; /* 追加: ロゴが縮まないようにする */
+}
+.logo img {
+  max-height: 60px; /* ロゴの高さはそのまま */
+  margin-left: 0; /* ヘッダーのパディングに任せるため削除 */
+}
+
+
+.nav-menu .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu .nav-list li {
+    margin-left: 30px;
+    position: relative;
+}
+
+.nav-menu .nav-list a {
+    color: #555;
+    font-weight: bold;
+    padding: 5px 0;
+    display: block;
+    transition: color 0.3s ease;
+    font-size: 12px;
+}
+
+.nav-menu .nav-list a:hover {
+    color: #18a2d4;
+    text-decoration: none;
+}
+
+/* 言語切り替えボタン（地球儀アイコン用） */
+.lang-switcher {
+    margin-left: 20px; /* メニュー項目との間隔を調整 */
+}
+
+.lang-switcher .lang-icon {
+    background: none;
+    border: 1px solid #ccc; /* アイコンに枠線を追加 */
+    border-radius: 5px; /* 角を少し丸く */
+    color: #555;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 12px; /* パディングを調整してアイコンとテキストが収まるように */
+    transition: all 0.3s ease;
+    display: flex; /* アイコンとテキストを横並びに */
+    align-items: center; /* 垂直方向中央揃え */
+    gap: 5px; /* アイコンとテキストの間のスペース */
+    font-size: 0.9em; /* ボタン全体のフォントサイズ */
+}
+
+.lang-switcher .lang-icon:hover {
+    background-color: #f0f0f0;
+    color: #18a2d4;
+    border-color: #18a2d4;
+}
+
+.lang-switcher .lang-icon i {
+    font-size: 1.2em; /* 地球儀アイコンのサイズ */
+    vertical-align: middle;
+}
+
+.lang-switcher .lang-icon .current-lang {
+    font-size: 1em; /* 言語コードのフォントサイズ */
+}
+
+
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.hamburger-menu .bar {
+  width: 100%;
+  height: 3px;
+  background: #333;
+  transition: all 0.3s ease;
+}
+
+/* ========== Hero / Video Header ========== */
+.video-header {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.video-header video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.video-overlay .site-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #fff;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  font-weight: 900;
+}
+
+.video-overlay .site-subtitle {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 4vw, 2.5rem);
+  color: #fff;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+  margin-top: 0.75rem;
+  line-height: 1.4;
+}
+
+.video-caption {
+  display: none;
+}
+
+/* ========== Sections ========== */
+.content-with-image {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.content-with-image.reverse-order {
+  flex-direction: row-reverse;
+}
+
+.text-content,
+.image-content {
+  flex: 1 1 350px;
+}
+
+.image-content img {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.news-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.news-item {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.news-item h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* ========== Buttons ========== */
+.button {
+  display: inline-block;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  text-align: center;
+  border-radius: 6px;
+  background-color: #18a2d4;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: auto;
+}
+
+/* サブページ（フォーム）では幅いっぱいに */
+.form-page h1 {
+  font-family: 'YuGothic', '游ゴシック体', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  color: #007acc; /* スッキリした落ち着いた青 */
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5em;
+  text-shadow: none; /* これで縁取りや影を無効に */
+}
+.subpage 
+.button {
+  display: block;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  text-align: center;
+  border-radius: 6px;
+  background-color: #18a2d4;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #1289b5;
+}
+
+.primary-button {
+  background: #18a2d4;
+  color: #fff;
+}
+
+.primary-button:hover {
+  opacity: 0.85;
+}
+
+.secondary-button {
+  background: #fff;
+  border: 2px solid #18a2d4;
+  color: #18a2d4;
+}
+
+.secondary-button:hover {
+  background: #f0faff;
+}
+
+.sub-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background: #f5f5f5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+}
+
+.sub-header .back-btn img {
+  height: auto;
+  max-height: 60px;
+  display: block;
+}
+
+
+/* ========== Footer ========== */
+.footer {
+  background: #333;
+  color: #fff;
+  padding-block: 3rem 1.5rem;
+  font-size: 0.85rem;
+}
+
+/* サイトマップや会社情報のグリッド */
+.footer-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  margin-bottom: 2rem;
+}
+
+/* コピーライトのみ中央揃え */
+.footer-copyright {
+  text-align: center;
+}
+
+.footer-copyright p {
+  margin: 0;
+}
+
+
+.footer-section h3 {
+  margin-bottom: 0.75rem;
+}
+
+.footer-section a {
+  color: #fff;
+  transition: 0.3s;
+}
+
+.footer-section a:hover {
+  color: #18a2d4;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.social-links a {
+  font-size: 1.4rem;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #18a2d4;
+}
+
+/* ========== Media Queries ========== */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 0.8rem 10px; /* モバイル時は左右のパディングを減らす */
+  }
+  .nav-menu {
+    margin-left: 0; /* モバイルではロゴとの余白は不要 */
+  }
+
+  /* --- Mobile Nav --- */
+  .hamburger-menu { display: flex; }
+  .nav-menu .nav-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    flex-direction: column; /* 縦並びにする */
+    background: #fff;
+    padding-block: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.25s ease;
+    flex-wrap: nowrap; /* モバイルでもテキストの折り返しは禁止 */
+    justify-content: flex-start; /* 縦並びなので左寄せ */
+  }
+  .nav-menu .nav-list.active { transform: scaleY(1); }
+  .nav-menu .nav-list a {
+    padding-block: 0.65rem;
+    font-size: 1rem; /* モバイル時のフォントサイズ */
+    white-space: nowrap; /* テキストの折り返し禁止は継続 */
+    flex-shrink: 0;
+  }
+
+  .content-with-image,
+  .content-with-image.reverse-order {
+    flex-direction: column;
+  }
+
+  .video-header { height: 60vh; }
+
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+  }
+  .video-overlay .site-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+  .video-overlay .site-subtitle {
+    font-size: clamp(1rem, 4.8vw, 1.4rem);
+  }
+}

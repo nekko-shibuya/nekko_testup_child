@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>施設予約 | nekko SHIBUYA</title>
+
+  <!-- 共通 CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- アイコン & フォント -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- サブページ専用の微調整（必要に応じて style.css に移動可） -->
+  <style>
+    .form-page {
+      max-width: 480px;
+      margin: 2.5rem auto;
+      padding: 0 1rem 4rem;
+    }
+
+    .form-page h1 {
+      font-family: 'YuGothic', '游ゴシック体', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+      color: #007acc;
+      font-weight: 600;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1.5em;
+      text-shadow: none;
+    }
+
+    .form-field {
+      margin-bottom: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-field label {
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .form-field input,
+    .form-field select {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 0.6rem 0.75rem;
+      font-size: 1.05rem;
+      width: 100%;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus {
+      outline: 2px solid #509f5e33;
+    }
+
+    /* ボタンを幅いっぱいに */
+    .subpage .button {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin-top: 1.2rem;
+    }
+  </style>
+</head>
+
+<body class="subpage">
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="image5.jpg" alt="nekko SHIBUYA ホームに戻る">
+      </a>
+    </div>
+  </header>
+
+
+  <!-- ===== メイン ===== -->
+  <main class="form-page">
+    <h1 data-ja="施設予約" data-en="Facility Reservation">施設予約</h1>
+
+    <form id="reservation-form" class="reservation-form" novalidate>
+      <!-- 日付 -->
+      <div class="form-field">
+        <label for="res-date" data-ja="ご利用日" data-en="Date">ご利用日</label>
+        <input type="date" id="res-date" name="date" required />
+      </div>
+
+      <!-- 時間帯 -->
+      <div class="form-field">
+        <label for="res-time" data-ja="時間帯" data-en="Time Slot">時間帯</label>
+        <select id="res-time" name="time" required>
+          <option value="" disabled selected data-ja="選択してください" data-en="Select">選択してください</option>
+          <option value="10:00‑12:00">10:00‑12:00</option>
+          <option value="13:00‑15:00">13:00‑15:00</option>
+          <option value="15:30‑17:30">15:30‑17:30</option>
+        </select>
+      </div>
+
+      <!-- 人数 -->
+      <div class="form-field">
+        <label for="res-people" data-ja="人数" data-en="People">人数</label>
+        <input type="number" min="1" max="10" id="res-people" name="people" required />
+      </div>
+
+      <!-- 利用エリア -->
+      <div class="form-field">
+        <label for="res-area" data-ja="ご利用エリア" data-en="Area">ご利用エリア</label>
+        <select id="res-area" name="area" required>
+          <option value="" disabled selected data-ja="選択してください" data-en="Select">選択してください</option>
+          <option value="しましまのねっこ">しましまのねっこ</option>
+          <option value="ぐるぐるのねっこ">ぐるぐるのねっこ</option>
+          <option value="ねっこみゅーじあむ">ねっこみゅーじあむ</option>
+        </select>
+      </div>
+
+      <button type="submit" class="button primary-button" data-ja="予約する" data-en="Reserve">予約する</button>
+    </form>
+  </main>
+
+  <!-- ===== フッター ===== -->
+<footer class="footer">
+  <div class="footer-copyright">
+    <p>© 2027 nekko SHIBUYA All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+  <!-- 共通JS（言語切替やメニュー用） -->
+  <script src="scripts/lang-toggle-and-menu.js"></script>
+</body>
+</html>
+
